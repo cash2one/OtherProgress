@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--所有各种服务器参数-->
+<Fir>
+	<AllZoneServer>
+		<!-- Specify the log level[debug,info,warning,error,fatal,always]. -->
+		<log>debug</log>
+		<!-- Specify the log filename. -->
+        <logfilename>/home/flyer/newWorkPlace/kittyserver/log/allzoneserver.log</logfilename>
+        <mysql>mysql://kitty:123456@192.168.2.24:3306/allzoneserver</mysql>
+        <!-- 内部使用端口，用于服务器之间数据传输 -->
+        <inside_port>1600</inside_port>
+	</AllZoneServer>
+</Fir>
