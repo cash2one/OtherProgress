@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<tbx>
+	<file name="pb.npcinfo"  path="npcinfo.tbx"/>
+	<file name="pb.buildOption"  path="buildOption.tbx"/>
+	<file name="pb.ShopType"  path="ShopType.tbx"/>
+	<file name="pb.itemInfo"  path="itemInfo.tbx"/>
+	<file name="pb.buildDepends"  path="buildDepends.tbx"/>
+	<file name="pb.Shop"  path="Shop.tbx"/>
+</tbx>

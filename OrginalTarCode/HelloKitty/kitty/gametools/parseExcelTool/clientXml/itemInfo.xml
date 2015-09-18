@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<itemInfo>
+	<itemInfo>
+		<rowNode>
+			<id>1</id>
+			<item>背包</item>
+			<level>1</level>
+			<getWay>1</getWay>
+			<function>1</function>
+			<grade>1</grade>
+			<price>1</price>
+			<part>1</part>
+			<kind>1</kind>
+			<tier>1</tier>
+			<tierFunction1>1</tierFunction1>
+			<tierAttribute1>1</tierAttribute1>
+			<tierFunction2>1</tierFunction2>
+			<tierAttribute2>1</tierAttribute2>
+			<tierFunction3>1</tierFunction3>
+			<tierAttribute3>1</tierAttribute3>
+			<card>1</card>
+			<describe>1.0</describe>
+		</rowNode>
+		<rowNode>
+			<id>2</id>
+			<item>怀表</item>
+			<level>1</level>
+			<getWay>1</getWay>
+			<function>1</function>
+			<grade>1</grade>
+			<price>10</price>
+			<part>1</part>
+			<kind>1</kind>
+			<tier>1</tier>
+			<tierFunction1>1</tierFunction1>
+			<tierAttribute1>1</tierAttribute1>
+			<tierFunction2>1</tierFunction2>
+			<tierAttribute2>1</tierAttribute2>
+			<tierFunction3>1</tierFunction3>
+			<tierAttribute3>1</tierAttribute3>
+			<card>1</card>
+			<describe>1.0</describe>
+		</rowNode>
+	</itemInfo>
+</itemInfo>

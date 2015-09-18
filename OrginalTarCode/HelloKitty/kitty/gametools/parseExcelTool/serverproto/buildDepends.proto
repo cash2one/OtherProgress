@@ -1,0 +1,13 @@
+package pb;
+
+message buildDepends
+{
+	message t_buildDepends
+	{
+		required uint32 tbxid = 1;
+		required string id = 2;
+		required string name = 3;
+		required string info = 4;
+	}
+	repeated t_buildDepends datas = 1;
+}

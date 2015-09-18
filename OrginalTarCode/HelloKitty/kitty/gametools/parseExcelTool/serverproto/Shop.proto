@@ -1,0 +1,18 @@
+package pb;
+
+message Shop
+{
+	message t_Shop
+	{
+		required uint32 tbxid = 1;
+		required uint32 id = 2;
+		required uint32 mtype = 3;
+		required uint32 itemid = 4;
+		required uint32 stype = 5;
+		required uint32 ctype = 6;
+		required uint32 price = 7;
+		required uint32 disPrice = 8;
+		required uint32 max = 9;
+	}
+	repeated t_Shop datas = 1;
+}

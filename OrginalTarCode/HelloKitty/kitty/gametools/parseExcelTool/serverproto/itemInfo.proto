@@ -1,0 +1,28 @@
+package pb;
+
+message itemInfo
+{
+	message t_itemInfo
+	{
+		required uint32 tbxid = 1;
+		required uint32 id = 2;
+		required string item = 3;
+		required uint32 level = 4;
+		required uint32 getWay = 5;
+		required uint32 function = 6;
+		required uint32 grade = 7;
+		required uint32 price = 8;
+		required uint32 part = 9;
+		required uint32 kind = 10;
+		required uint32 tier = 11;
+		required uint32 tierFunction1 = 12;
+		required uint32 tierAttribute1 = 13;
+		required uint32 tierFunction2 = 14;
+		required uint32 tierAttribute2 = 15;
+		required uint32 tierFunction3 = 16;
+		required uint32 tierAttribute3 = 17;
+		required uint32 card = 18;
+		required string describe = 19;
+	}
+	repeated t_itemInfo datas = 1;
+}

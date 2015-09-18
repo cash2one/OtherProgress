@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<Shop>
+	<Shop>
+		<rowNode>
+			<id>1</id>
+			<mtype>1</mtype>
+			<itemid>1</itemid>
+			<stype>3</stype>
+			<ctype>1</ctype>
+			<price>999</price>
+			<disPrice>999</disPrice>
+			<max>2</max>
+		</rowNode>
+	</Shop>
+</Shop>

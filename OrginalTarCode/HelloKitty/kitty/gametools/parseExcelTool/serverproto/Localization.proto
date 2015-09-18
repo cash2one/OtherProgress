@@ -1,0 +1,14 @@
+package pb;
+
+message Localization
+{
+	message t_Localization
+	{
+		required uint32 tbxid = 1;
+		required string id = 2;
+		required string English = 3;
+		required string Chinese = 4;
+		required string Japanese = 5;
+	}
+	repeated t_Localization datas = 1;
+}

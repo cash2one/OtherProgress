@@ -1,0 +1,21 @@
+package pb;
+
+message npcinfo
+{
+	message t_npcinfo
+	{
+		required uint32 tbxid = 1;
+		required uint32 id = 2;
+		required string name = 3;
+		required uint32 pic = 4;
+		required uint32 getWay = 5;
+		required uint32 function = 6;
+		required uint32 functionValue = 7;
+		required uint32 friendly = 8;
+		required uint32 require = 9;
+		required uint32 missionRequire = 10;
+		required uint32 grade = 11;
+		required uint32 describe = 12;
+	}
+	repeated t_npcinfo datas = 1;
+}

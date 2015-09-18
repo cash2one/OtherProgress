@@ -1,0 +1,58 @@
+id	英文文本	中文文本	日文文本
+string	string	string	string
+id	English	Chinese	Japanese
+0.0	0.0	0.0	0
+Text_English	English	英文	todo
+Text_Chinese	Chinese	中文	todo
+Text_Japanese	Japanese	日文	todo
+building_jz_100_0		乐园管理处	
+building_jz_101_0		小火车站	
+building_jz_102_0		自行车出租屋	
+building_jz_103_0		kitty主题餐厅	
+building_jz_104_0		kitty主题剧院	
+building_jz_105_0		kitty小屋	
+building_jz_106_0		飞艇坪	
+building_jz_107_0		庄园	
+building_jz_108_0		花园	
+building_jz_109_0		乐园售票亭	
+building_jz_110_0		回收站	
+building_jz_111_0		旋转木马	
+building_jz_112_0		melody转盘	
+building_jz_113_0		摩天轮	
+building_jz_114_0		melody舞台	
+building_jz_115_0		melody主题餐厅	
+building_jz_116_0		卡丁车赛道	
+building_jz_117_0		海盗船	
+building_jz_118_0		碰碰车	
+building_jz_119_0		惊悚屋	
+building_jz_120_0		咖啡杯	
+building_jz_121_0		飓风飞椅	
+building_jz_122_0		冰激凌车	
+building_jz_123_0		糖果屋	
+building_jz_124_0		咖啡屋	
+building_jz_125_0		烘焙屋	
+building_jz_126_0		马戏团	
+building_jz_127_0		丛林探险	
+building_jz_128_0		海洋剧场	
+building_jz_129_0		游船码头	
+building_jz_130_0		日料店	
+building_jz_131_0		甜品店	
+building_jz_132_0		礼品店	
+building_jz_133_0		占卜屋	
+building_jz_134_0		天文台	
+building_jz_135_0		储藏室	
+building_jz_136_0		集市	
+building_jz_137_0		家族中心	
+building_jz_138_0		工人宿舍	
+building_jz_139_0		试衣间	
+building_jz_140_0		道路	
+building_db_100_0		克里姆林宫	
+building_db_101_0		东方明珠	
+building_db_102_0		姬路城	
+building_db_103_0		狮身人面像	
+building_db_104_0		自由女神像	
+building_db_105_0		凯旋门	
+building_db_106_0		帕台农神庙	
+building_jz_141_0		卫生间	
+building_jz_142_0		垃圾桶	
+building_jz_143_0		饮水机	

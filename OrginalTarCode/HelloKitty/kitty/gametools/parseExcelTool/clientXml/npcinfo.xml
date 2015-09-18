@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<npcinfo>
+	<npcinfo>
+		<rowNode>
+			<id>1</id>
+			<name>1.0</name>
+			<pic>1</pic>
+			<getWay>1</getWay>
+			<function>1</function>
+			<functionValue>1</functionValue>
+			<friendly>1</friendly>
+			<require>1</require>
+			<missionRequire>1</missionRequire>
+			<favourate>1</favourate>
+			<grade>1</grade>
+			<describe>1</describe>
+		</rowNode>
+	</npcinfo>
+</npcinfo>

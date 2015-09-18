@@ -1,0 +1,13 @@
+package pb;
+
+message buildOption
+{
+	message t_buildOption
+	{
+		required uint32 tbxid = 1;
+		required uint32 id = 2;
+		required string name = 3;
+		required string icon = 4;
+	}
+	repeated t_buildOption datas = 1;
+}
