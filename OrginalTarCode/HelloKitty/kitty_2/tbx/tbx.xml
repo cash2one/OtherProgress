@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<tbx>
+	<file name="pb.newRoleAttr" path="newRoleAttr.tbx"/>
+	<file name="pb.building" path="building.tbx"/>
+	<file name="pb.itemInfo" path="itemInfo.tbx"/>
+</tbx>
