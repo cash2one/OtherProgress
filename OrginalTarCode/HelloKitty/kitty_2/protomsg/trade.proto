@@ -1,0 +1,129 @@
+package HelloKittyMsgData;
+
+message PbStoreItem
+{
+	 optional uint32 itemId = 1;
+	 optional uint32 itemCount = 2;
+}
+
+enum SaleCellStatusType 
+{
+	 Sale_Status_Empty = 0;
+	 Sale_Status_For_Sale = 1;
+	 Sale_Status_Sale_End = 2;
+	 Sale_Status_Close = 3;
+}
+
+message PbSaleCell
+{
+	 required uint32 cellId = 1;
+	 required uint32 itemId = 2;
+	 required uint32 itemCount = 3;
+	 required uint32 price = 4;
+	 required SaleCellStatusType status = 5;
+	 required string nickName = 6;
+}
+
+message PbSaleCeilFlushZone
+{
+	 required uint64 charid = 1;
+	 required uint32 sceneid = 2;
+	 required PbSaleCell saleCell = 3;
+}
+
+message PbSaleCeilFlush
+{
+	 required PbSaleCell saleCell = 1;
+}
+
+message PbSaleBooth
+{
+	 required uint32 zoneCellID = 1 [default = 10000];
+	 repeated PbSaleCell saleCell = 2;
+}
+
+enum StoreItemType 
+{
+	 Store_Type_Ware_House = 0;
+	 Store_Type_Package = 1;
+	 Store_Type_Sale = 2;
+}
+
+message RequireStoreItem
+{
+	 required StoreItemType type = 1;
+}
+
+message FlushSaleBooth
+{
+	 optional PbSaleBooth saleBooth = 1;
+}
+
+message FlushWareHouse
+{
+	 repeated PbStoreItem store_items = 1;
+}
+
+message RequireAddItem
+{
+	 required PbStoreItem item = 1;
+}
+
+message AddItemReturn
+{
+	 required bool ret = 1;
+}
+
+message RequireSallPutItem
+{
+	 required uint32 cellId = 1;
+	 required uint32 itemId = 2;
+	 required uint32 itemCount = 3;
+	 required uint32 price = 4;
+}
+
+message RequireSallDownItem
+{
+	 required uint32 cellId = 1;
+}
+
+enum SaleOpFailType 
+{
+	 Sale_Op_Close = 0;
+	 Sale_Op_Not_Empty = 1;
+	 Sale_Op_Item_Not_Enough = 2;
+	 Sale_Op_Empty = 3;
+	 Sale_Op_Full = 4;
+	 Sale_Op_Money = 5;
+	 Sale_Op_Open = 6;
+}
+
+message SaleCellOpItemReturn
+{
+	 required bool ret = 1;
+	 required SaleOpFailType reason = 2;
+}
+
+message RequireOpenCell
+{
+	 required uint32 cellID = 1;
+}
+
+message RequirSellPaper
+{
+	 required uint32 sceneid = 1 [default = 0];
+	 required uint64 charid = 2;
+}
+
+message SellPaperCell
+{
+	 required string name = 1;
+	 required uint64 charid = 2;
+	 required PbSaleCell salecell = 3;
+}
+
+message ReturnSellPaper
+{
+	 required uint32 createTime = 1;
+	 repeated SellPaperCell paperCell = 2;
+}

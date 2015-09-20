@@ -1,0 +1,140 @@
+package HelloKittyMsgData;
+
+message ClientRequestVersion
+{
+	 required uint32 clientVersion = 1;
+}
+
+enum PhoneType 
+{
+	 Android = 0;
+	 Iphone = 1;
+}
+
+enum NetType 
+{
+	 Tele = 0;
+	 NetCom = 1;
+}
+
+enum UserPlateType 
+{
+	 Tencent = 0;
+	 Baidu = 1;
+	 Qihoo = 2;
+	 Other = 3;
+}
+
+message ClientRequestLogin
+{
+	 required PhoneType phoneType = 1;
+	 required string phoneUuid = 2;
+	 required uint32 gameZone = 3;
+	 required string account = 4;
+	 required NetType netType = 5;
+	 required UserPlateType usertype = 6;
+}
+
+enum LoginFailReason 
+{
+	 AccountOdd = 0;
+	 VersionError = 1;
+	 NormalMain = 2;
+	 GatewayNotOpen = 3;
+	 UserFull = 4;
+	 SendZoneError = 5;
+	 TimeOut = 6;
+	 UuidError = 7;
+	 NameIllega = 8;
+	 NameAgain = 9;
+	 NotRole = 10;
+}
+
+message ClientLoginFailReturn
+{
+	 required LoginFailReason failReason = 1;
+}
+
+enum LoginRetType 
+{
+	 Normal = 0;
+	 Kick = 1;
+}
+
+message LoginSuccessReturn
+{
+	 required uint32 loginTempID = 1;
+	 required string gatewayIP = 2;
+	 required uint32 gatewayPort = 3;
+	 repeated uint32 keyArr = 4;
+	 required LoginRetType loginRet = 5;
+}
+
+message LoginGateway
+{
+	 required string account = 1;
+	 required UserPlateType usertype = 2;
+	 required PhoneType phoneType = 3;
+	 required string phoneUuid = 4;
+}
+
+message GameTime
+{
+	 required uint64 gameTime = 1;
+}
+
+enum SexType 
+{
+	 Male = 0;
+	 Female = 1;
+}
+
+message UserBaseInfo
+{
+	 required uint64 charId = 1;
+	 required string name = 2;
+	 required SexType sex = 3;
+	 required uint32 level = 4;
+	 required uint64 exp = 5;
+	 required uint64 gold = 6;
+	 required uint64 gem = 7;
+}
+
+message ReturnUserInfo
+{
+	 required bool hasUser = 1;
+	 required UserBaseInfo userBase = 2;
+}
+
+message RequireCreateRole
+{
+	 required string name = 1;
+	 required SexType sex = 2;
+	 required uint32 heroId = 3;
+}
+
+enum SwitchType 
+{
+	 Open = 0;
+	 Close = 1;
+}
+
+message OpReceiveWorldChatCmd
+{
+	 required SwitchType switchFlg = 1;
+}
+
+enum NoticeType 
+{
+	 Notice_Kick_Out = 0;
+}
+
+message NoticeClient
+{
+	 required NoticeType noticeType = 1;
+}
+
+message FlushUserInfo
+{
+	 required UserBaseInfo userBase = 1;
+}

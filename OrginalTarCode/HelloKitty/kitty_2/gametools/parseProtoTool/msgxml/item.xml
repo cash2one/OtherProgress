@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<protocol>	
+	<proto name="UseItem" desc="使用道具">
+		<member name="itemID" prefix="required" type="uint32" desc="道具id"/>
+		<member name="num" prefix="required" type="uint32" desc="道具数量"/>
+	</proto>
+	
+	<enum name="UseItemFailType" desc="使用道具失败原因">
+		<member name="Fail_Item_Illeay" value="0" desc="使用的道具非法"/>
+		<member name="Fail_Item_Not_Enough" value="1" desc="道具使用不够"/>
+		<member name="Fail_Item_Level_Limited" value="2" desc="等级不足，不能使用"/>
+		<member name="Fail_Item_Premise_Limited" value="3" desc="前提条件不满足，不能使用"/>
+	</enum>
+	
+	<proto name="UseItemReturn" desc="使用道具返回">
+		<member name="ret" prefix="required" type="bool" desc="使用成功或者失败(真表示成功)"/>
+		<member name="reason" prefix="required" type="UseItemFailType" desc="使用道具失败的原因"/>
+	</proto>
+	
+	
+	
+	<proto name="Point" desc="地图坐标信息">
+		<member name="x" prefix="required" type="uint32" desc="x坐标"/>
+		<member name="y" prefix="required" type="uint32" desc="y坐标"/>
+	</proto>
+	
+	<proto name="FactorProductItem" desc="工厂生产的道具">
+		<member name="stop" prefix="required" type="bool" desc="是否暂停(真表示暂停，也只有收进包裹才会暂停)"/>
+		<member name="itemID" prefix="required" type="uint32" desc="道具id"/>
+		<member name="num" prefix="required" type="uint32" desc="一组的道具数量"/>
+		<member name="beginTime" prefix="required" type="uint32" desc="道具开始成长时间"/>
+		<member name="endTime" prefix="required" type="uint32" desc="道具开始成长被暂停时间"/>
+		<member name="time" prefix="required" type="uint32" desc="道具成长所需时间"/>
+	</proto>
+
+	<proto name="FactorTypeItem" desc="工厂类型的道具，可以生产东西">
+		<member name="itemID" prefix="required" type="uint32" desc="道具id"/>
+		<member name="active" prefix="required" type="bool" desc="是否已经激活(真表示激活)"/>
+		<member name="stop" prefix="required" type="bool" desc="是否暂停(真表示暂停，也只有收进包裹才会暂停)"/>
+		<member name="produceItem" prefix="repeated" type="FactorProductItem" desc="产品"/>
+	</proto>
+	
+	<proto name="Factor" desc="工厂类型的道具，可以放生产道具的东西">
+		<member name="itemID" prefix="required" type="uint32" desc="道具id"/>
+		<member name="active" prefix="required" type="bool" desc="是否已经激活(真表示激活)"/>
+		<member name="stop" prefix="required" type="bool" desc="是否暂停(真表示暂停，也只有收进包裹才会暂停)"/>
+		<member name="point" prefix="required" type="Point" desc="地图坐标"/>
+		<member name="factorItem" prefix="repeated" type="FactorTypeItem" desc="工厂道具"/>
+	</proto>
+	
+	<proto name="Flush" desc="工厂类型的道具，可以放生产道具的东西">
+		<member name="itemID" prefix="required" type="FactorTypeItem" desc="道具id"/>
+		<member name="active" prefix="required" type="bool" desc="是否已经激活(真表示激活)"/>
+		<member name="stop" prefix="required" type="bool" desc="是否暂停(真表示暂停，也只有收进包裹才会暂停)"/>
+		<member name="point" prefix="required" type="Point" desc="地图坐标"/>
+		<member name="factorItem" prefix="repeated" type="FactorTypeItem" desc="工厂道具"/>
+	</proto>
+	
+</protocol>
+

@@ -1,0 +1,63 @@
+package HelloKittyMsgData;
+
+message UseItem
+{
+	 required uint32 itemID = 1;
+	 required uint32 num = 2;
+}
+
+enum UseItemFailType 
+{
+	 Fail_Item_Illeay = 0;
+	 Fail_Item_Not_Enough = 1;
+	 Fail_Item_Level_Limited = 2;
+	 Fail_Item_Premise_Limited = 3;
+}
+
+message UseItemReturn
+{
+	 required bool ret = 1;
+	 required UseItemFailType reason = 2;
+}
+
+message Point
+{
+	 required uint32 x = 1;
+	 required uint32 y = 2;
+}
+
+message FactorProductItem
+{
+	 required bool stop = 1;
+	 required uint32 itemID = 2;
+	 required uint32 num = 3;
+	 required uint32 beginTime = 4;
+	 required uint32 endTime = 5;
+	 required uint32 time = 6;
+}
+
+message FactorTypeItem
+{
+	 required uint32 itemID = 1;
+	 required bool active = 2;
+	 required bool stop = 3;
+	 repeated FactorProductItem produceItem = 4;
+}
+
+message Factor
+{
+	 required uint32 itemID = 1;
+	 required bool active = 2;
+	 required bool stop = 3;
+	 required Point point = 4;
+	 repeated FactorTypeItem factorItem = 5;
+}
+
+message Flush
+{
+	 required FactorTypeItem itemID = 1;
+	 required bool active = 2;
+	 required bool stop = 3;
+	 required Point point = 4;
+	 repeated FactorTypeItem factorItem = 5;
+}

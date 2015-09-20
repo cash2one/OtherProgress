@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<protocol>
+	<import>
+		<member name="item" desc="道具对应的proto"/>
+		<member name="trade" desc="交易对应的proto"/>
+	</import>
+	<enum name="CounterResetType" desc="计数器重置类型">
+		<member name="Reset_No" value="0" desc="不重置"/>
+		<member name="Reset_Day" value="1" desc="每天零点重置"/>
+		<member name="Reset_SixHour" value="2" desc="每天6点重置"/>
+		<member name="Reset_Week" value="3" desc="每周重置"/>
+		<member name="Reset_Month" value="4" desc="每月重置"/>
+	</enum>
+	
+	<proto name="PbCounter" desc="人物身上计数器">
+		<member name="id" prefix="optional" type="uint32" desc="计数器编号"/>
+		<member name="type" prefix="optional" type="CounterResetType" desc="计数器类型"/>
+		<member name="lastTime" prefix="optional" type="uint32" desc="最后记录时间,为0时，不需要记录，秒数"/>
+		<member name="count" prefix="optional" type="uint32" desc="计数值"/>
+	</proto>
+	
+	<proto name="Serialize" desc="存档的二进制内容">
+		<member name="pb_counters" prefix="repeated" type="PbCounter" desc="人物身上计数器"/>
+		<member name="store_items" prefix="repeated" type="PbStoreItem" desc="需要保存的道具信息"/>
+		<member name="saleBooth" prefix="optional" type="PbSaleBooth" desc="摊位"/>
+		<member name="factor" prefix="repeated" type="Factor" desc="摊位"/>
+	</proto>
+	
+	<proto name="MsgSaleCell" desc="存档的二进制内容">
+		<member name="pb_counters" prefix="repeated" type="PbCounter" desc="人物身上计数器"/>
+		<member name="store_items" prefix="repeated" type="PbStoreItem" desc="需要保存的道具信息"/>
+		<member name="saleBooth" prefix="optional" type="PbSaleBooth" desc="摊位"/>
+	</proto>
+	
+</protocol>
+

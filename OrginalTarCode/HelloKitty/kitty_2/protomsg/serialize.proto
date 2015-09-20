@@ -1,0 +1,35 @@
+package HelloKittyMsgData;
+import "item.proto";
+import "trade.proto";
+
+enum CounterResetType 
+{
+	 Reset_No = 0;
+	 Reset_Day = 1;
+	 Reset_SixHour = 2;
+	 Reset_Week = 3;
+	 Reset_Month = 4;
+}
+
+message PbCounter
+{
+	 optional uint32 id = 1;
+	 optional CounterResetType type = 2;
+	 optional uint32 lastTime = 3;
+	 optional uint32 count = 4;
+}
+
+message Serialize
+{
+	 repeated PbCounter pb_counters = 1;
+	 repeated PbStoreItem store_items = 2;
+	 optional PbSaleBooth saleBooth = 3;
+	 repeated Factor factor = 4;
+}
+
+message MsgSaleCell
+{
+	 repeated PbCounter pb_counters = 1;
+	 repeated PbStoreItem store_items = 2;
+	 optional PbSaleBooth saleBooth = 3;
+}
