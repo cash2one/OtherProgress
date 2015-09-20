@@ -1,0 +1,105 @@
+BUILD_DIR_ROOT = $(PWD)
+
+SVN_ROOT=svn://192.168.2.24/svnkitty/hellokitty
+
+DESIGN_SVNURL=$(SVN_ROOT)/design/designconfig/excel
+DESIGN_XML_SVNURL=$(SVN_ROOT)/design/designconfig/xml
+
+MAKE_TBX_PATH=$(BUILD_DIR_ROOT)/excel
+TBX_PATH=$(BUILD_DIR_ROOT)/tbx
+TBX_CPP_PATH=$(BUILD_DIR_ROOT)/tbxcpp
+XML_PATH=$(BUILD_DIR_ROOT)/config
+MAKE_XML_PATH=$(XML_PATH)/xml
+XML_CPP_PATH=$(BUILD_DIR_ROOT)/xml
+FIRCOMM_PATH=$(BUILD_DIR_ROOT)/common
+
+WARNING_OPT = -g -Wall -Werror -Wno-unused-local-typedefs -Wno-narrowing -Wno-deprecated -fno-strict-aliasing
+MACRO_OPT = -D_DEBUG_WCX -D_ZYZ_DEBUG -D_DEBUG_LBS -D_USE_CMD_NAMESPACE  -D_USE_EPOLL_ -D_GNU_SOURCE -D_REENTRANT -D_USE_GCC_4
+DIR_OPT = -I../xml -I../base -I../tbxcpp -I$(FIRCOMM_PATH) -I../base/rapidxml -I../base/hiredis -I../base/EncDec -I$(TBX_CPP_PATH)
+
+FIR_DEBUG_OPT = $(WARNING_OPT) $(MACRO_OPT) $(DIR_OPT) -D_ALL_SUPER_GM 
+
+SUB_DIRS = tbxcpp xml base/EncDec base/hiredis base tbxcpp xml protocpp base superserver recordserver gateserver sessionserver sceneserver allzoneserver flserver
+
+ALL_SUB_DIRS = $(SUB_DIRS)
+NJOBS = `if [ "" == "$(NCPUS)" ]; then echo ""; else echo "-j$(NCPUS)"; fi`
+
+export CXX = /usr/bin/c++
+
+.PHONY : all debug debug_nogm ctags doc distclean clean sql res svn build release_cp dist_tar dist map distall dist_tar_gm dist_gm map_gm distall_gm $(ALL_SUB_DIRS) ChangeLog
+
+all: debug
+
+res:
+	#生成excel资源
+	chmod +x gametools/parseExcelTool/tool_parse_excel.py
+	@rm -rf tbx/*.*
+	@rm -rf tbxcpp/*.*
+	
+	@(cd gametools/parseExcelTool;./tool_parse_excel.py)
+	@if ls gametools/parseExcelTool/readtbxxml/*.xml > /dev/null 2>&1; then cp gametools/parseExcelTool/readtbxxml/* tbx/; fi
+	@if ls gametools/parseExcelTool/tbx/*.tbx > /dev/null 2>&1; then cp gametools/parseExcelTool/tbx/* tbx/; fi
+	@if ls gametools/parseExcelTool/cppproto/*.h > /dev/null 2>&1; then cp gametools/parseExcelTool/cppproto/* tbxcpp/; fi
+	@if ls gametools/parseExcelTool/managercpp/*.h > /dev/null 2>&1; then cp gametools/parseExcelTool/managercpp/* tbxcpp/; fi
+		
+	@rm -rf gametools/parseExcelTool/readtbxxml
+	@rm -rf gametools/parseExcelTool/tbx
+	@rm -rf gametools/parseExcelTool/cppproto
+	@rm -rf gametools/parseExcelTool/managercpp
+	@rm -rf gametools/parseExcelTool/clientXml
+	@rm -rf gametools/parseExcelTool/pythonproto
+	@rm -rf gametools/parseExcelTool/serverproto
+	
+	#生成xml资源
+	chmod +x gametools/parseXmlTool/tool_parse_xml.py
+	@rm -rf xml/*.*
+	
+	@(cd gametools/parseXmlTool;./tool_parse_xml.py)
+	@if ls gametools/parseXmlTool/xmlcpp/*.h > /dev/null 2>&1; then cp gametools/parseXmlTool/xmlcpp/* xml/; fi
+	@if ls gametools/parseXmlTool/xmlcommon/*.h > /dev/null 2>&1; then cp gametools/parseXmlTool/xmlcommon/* xml/; fi
+	@if ls gametools/parseXmlTool/managerxmlcpp/*.h > /dev/null 2>&1; then cp gametools/parseXmlTool/managerxmlcpp/* xml/; fi
+	
+	@rm -rf gametools/parseXmlTool/xmlcpp
+	@rm -rf gametools/parseXmlTool/xmlcommon
+	@rm -rf gametools/parseXmlTool/managerxmlcpp
+	
+	#生成proto消息资源
+	chmod +x gametools/parseProtoTool/tool_parse_xml_proto.py
+	@rm -rf protomsg/*.*
+	
+	@(cd gametools/parseProtoTool;./tool_parse_xml_proto.py)
+	@if ls gametools/parseProtoTool/protodir/*.proto > /dev/null 2>&1; then cp gametools/parseProtoTool/protodir/* protomsg/; fi
+	@rm -rf gametools/parseProtoTool/protodir
+
+
+debug:
+	@for dir in $(SUB_DIRS); \
+		do \
+		FIR_COMPILE_OPT='$(FIR_DEBUG_OPT) -DBUILD_STRING=$(BUILD_STRING)' PIC_FLAG='-fPIC' $(MAKE)  $(NJOBS) -C $$dir || exit 1; \
+		done
+
+clear:
+	@(cd superserver/;rm -rf .*.d)
+	@(cd recordserver/;rm -rf .*.d)
+	@(cd sessionserver/;rm -rf .*.d)
+	@(cd sceneserver/;rm -rf .*.d)
+	@(cd allzoneserver/;rm -rf .*.d)
+
+ctags:
+	@ctags -R -h ".c.cpp.h" -o tags
+
+systags:
+	@ctags -I _THROW --file-scope=yes --langmap=c:+.h --languages=c,c++ --links=yes --c-kinds=+p -R -f ~/.vim/systags /usr/include /usr/local/include
+
+proto:
+	@rm -rf ./protocpp/*.{h,cpp,cc}
+	@./protoc -I=./protomsg --cpp_out=./protocpp ./protomsg/*.proto
+
+distclean: 
+	@find . -iname .\*.d -exec rm \{\} \;
+
+clean:
+	@for dir in $(ALL_SUB_DIRS); \
+	do \
+	$(MAKE) -C $$dir clean; \
+	done
