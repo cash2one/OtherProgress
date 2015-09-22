@@ -1,0 +1,41 @@
+package HelloKittyMsgData;
+
+enum DivineStatus 
+{
+	 DS_Begin = 0;
+	 DS_Vertify = 1;
+	 DS_End = 2;
+}
+
+message DivineData
+{
+	 required uint32 answer = 1;
+	 required uint32 lucklevel = 2;
+	 required string randorder = 3;
+	 required uint32 randtime = 4;
+	 required uint32 firstkey = 5;
+	 required DivineStatus status = 6;
+}
+
+message ReqDivineInfo
+{
+}
+
+message ReqDivineNotice
+{
+}
+
+message ReqDivine
+{
+	 required bool notify = 1;
+}
+
+message AckDivine
+{
+	 required DivineData divine = 1;
+}
+
+message ReqDivineVerify
+{
+	 required string older = 1;
+}

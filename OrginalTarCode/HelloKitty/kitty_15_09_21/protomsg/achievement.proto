@@ -1,0 +1,30 @@
+package HelloKittyMsgData;
+import "task.proto";
+
+message AchieveMent
+{
+	 required uint64 id = 1;
+	 required uint32 stars = 2;
+	 required TaskStatus status = 3;
+	 required uint32 current = 4;
+	 required uint32 total = 5;
+}
+
+message ReqAllAchieve
+{
+}
+
+message AckAllAchieve
+{
+	 repeated AchieveMent achieve = 1;
+}
+
+message ReqSubmitAchieve
+{
+	 required uint64 id = 1;
+}
+
+message AckUpdateAchieve
+{
+	 required AchieveMent achieve = 1;
+}

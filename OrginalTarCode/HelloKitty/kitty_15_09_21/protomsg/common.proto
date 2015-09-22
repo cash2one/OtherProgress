@@ -1,0 +1,79 @@
+package HelloKittyMsgData;
+
+enum ErrorCodeType 
+{
+	 Error_Common_Occupy = 0;
+	 Gold_Not_Enough = 1;
+	 Gem_Not_Enough = 2;
+	 Level_Not_Enough = 3;
+	 Guest_Not_Enough = 4;
+	 Friend_Val_Not_Enough = 5;
+	 Happy_Val_Not_Enough = 6;
+	 Material_Not_Enough = 7;
+	 WareHouse_Is_Full = 8;
+	 Worker_Not_Enough = 9;
+	 Build_In_CD = 10;
+	 Item_Not_Enough = 11;
+	 Email_Is_Enough = 12;
+	 Player_Not_Exist = 13;
+	 Email_Is_Empty = 14;
+	 Card_Is_Used = 15;
+	 Card_Is_Not_Suit = 16;
+}
+
+enum BufferTypeID 
+{
+	 Buffer_Type_Gold = 1;
+	 Buffer_Type_Range = 2;
+}
+
+message AckReturnError
+{
+	 required ErrorCodeType reason = 1;
+}
+
+enum SuccessCodeType 
+{
+	 Sale_Cell_Op = 3;
+}
+
+message AckReturnSuccess
+{
+	 required SuccessCodeType code = 1;
+}
+
+enum AttrType 
+{
+	 Attr_Level = 0;
+	 Attr_Gold = 1;
+	 Attr_Gem = 2;
+	 Attr_Exp = 3;
+	 Attr_Worker = 4;
+	 Attr_Happy_Val = 5;
+	 Attr_Friend_Val = 6;
+	 Attr_Ware_Grid_Val = 7;
+	 Attr_Carnival_Val = 8;
+	 Attr_Sweet_Val = 9;
+	 Attr_RandToy_Val = 10;
+	 Attr_Sall_Grid_Val = 11;
+	 Attr_Max = 20;
+}
+
+message AckUpdateAttrVal
+{
+	 required uint64 updatechar = 1;
+	 required AttrType attrtype = 2;
+	 required uint32 attrval = 3;
+}
+
+message RubbishData
+{
+	 required uint64 roadid = 1;
+	 required uint32 rubbish = 2;
+}
+
+message ReqPurchaseItem
+{
+	 required uint32 itemid = 1;
+	 required uint32 itemcount = 2;
+}

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<tbx>
+	<file name="pb.BurstEventReward" path="BurstEventReward.tbx"/>
+	<file name="pb.Handbook" path="Handbook.tbx"/>
+	<file name="pb.Dress" path="Dress.tbx"/>
+	<file name="pb.Achievement" path="Achievement.tbx"/>
+	<file name="pb.upgrade" path="upgrade.tbx"/>
+	<file name="pb.rubbish" path="rubbish.tbx"/>
+	<file name="pb.newRoleAttr" path="newRoleAttr.tbx"/>
+	<file name="pb.CarnivalShop" path="CarnivalShop.tbx"/>
+	<file name="pb.building" path="building.tbx"/>
+	<file name="pb.produceItem" path="produceItem.tbx"/>
+	<file name="pb.CarnivalData" path="CarnivalData.tbx"/>
+	<file name="pb.Task" path="Task.tbx"/>
+	<file name="pb.itemInfo" path="itemInfo.tbx"/>
+	<file name="pb.BurstEventNpc" path="BurstEventNpc.tbx"/>
+	<file name="pb.param" path="param.tbx"/>
+	<file name="pb.event" path="event.tbx"/>
+	<file name="pb.Toy" path="Toy.tbx"/>
+	<file name="pb.Divine" path="Divine.tbx"/>
+	<file name="pb.Paper" path="Paper.tbx"/>
+	<file name="pb.buffer" path="buffer.tbx"/>
+</tbx>

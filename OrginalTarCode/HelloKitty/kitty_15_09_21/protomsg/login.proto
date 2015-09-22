@@ -1,0 +1,177 @@
+package HelloKittyMsgData;
+import "build.proto";
+import "kittygarden.proto";
+import "produceitem.proto";
+import "usecardbuild.proto";
+import "dress.proto";
+import "enterkitty.proto";
+import "common.proto";
+import "event.proto";
+import "burstevent.proto";
+
+message ReqVersion
+{
+	 required uint32 clientVersion = 1;
+}
+
+message AckVersion
+{
+	 required uint32 version = 1;
+}
+
+enum PhoneType 
+{
+	 Android = 0;
+	 Iphone = 1;
+}
+
+enum NetType 
+{
+	 Tele = 0;
+	 NetCom = 1;
+}
+
+enum UserPlateType 
+{
+	 Tencent = 0;
+	 Baidu = 1;
+	 Qihoo = 2;
+	 Other = 3;
+}
+
+message ReqLogin
+{
+	 required PhoneType phoneType = 1;
+	 required string phoneUuid = 2;
+	 required uint32 gameZone = 3;
+	 required string account = 4;
+	 required NetType netType = 5;
+	 required UserPlateType usertype = 6;
+}
+
+enum LoginFailReason 
+{
+	 AccountOdd = 0;
+	 VersionError = 1;
+	 NormalMain = 2;
+	 GatewayNotOpen = 3;
+	 UserFull = 4;
+	 SendZoneError = 5;
+	 TimeOut = 6;
+	 UuidError = 7;
+	 NameIllega = 8;
+	 NameAgain = 9;
+	 NotRole = 10;
+}
+
+message AckLoginFailReturn
+{
+	 required LoginFailReason failReason = 1;
+}
+
+enum LoginRetType 
+{
+	 Normal = 0;
+	 Kick = 1;
+}
+
+message AckLoginSuccessReturn
+{
+	 required uint32 loginTempID = 1;
+	 required string gatewayIP = 2;
+	 required uint32 gatewayPort = 3;
+	 repeated uint32 keyArr = 4;
+	 required LoginRetType loginRet = 5;
+}
+
+message ReqLoginGateway
+{
+	 required string account = 1;
+	 required UserPlateType usertype = 2;
+	 required PhoneType phoneType = 3;
+	 required string phoneUuid = 4;
+}
+
+message AckGameTime
+{
+	 required uint64 gameTime = 1;
+}
+
+enum SexType 
+{
+	 Male = 0;
+	 Female = 1;
+}
+
+message UserBaseInfo
+{
+	 required uint64 charId = 1;
+	 required string name = 2;
+	 required SexType sex = 3;
+	 required uint32 level = 4;
+	 required uint64 exp = 5;
+	 required uint64 gold = 6;
+	 required uint64 gem = 7;
+	 required uint32 workernum = 8;
+	 required uint32 friendval = 9;
+	 required uint32 happyval = 10;
+	 required uint32 randtoy = 11;
+	 required uint32 itemwarehousecap = 12;
+	 required uint32 sweetval = 13;
+	 required uint32 carnival = 14;
+	 required DressData dress = 15;
+	 repeated BuildBase buildinfo = 16;
+	 required KittyGarden kittygarden = 17;
+	 repeated BuildProduce produce = 18;
+	 repeated StoreFunctionCell produceitem = 19;
+	 repeated BufferInfo bufferinfo = 20;
+	 repeated UseCardInfo usecard = 21;
+	 repeated BufferData externbuffer = 22;
+	 repeated RubbishData rubbish = 23;
+	 required Evententer eventinit = 24;
+	 repeated BurstEvent burstevent = 25;
+	 optional uint64 familyid = 26 [default = 0];
+}
+
+message AckUserInfo
+{
+	 required bool hasUser = 1;
+	 required UserBaseInfo userBase = 2;
+}
+
+message ReqCreateRole
+{
+	 required string name = 1;
+	 required SexType sex = 2;
+	 required uint32 heroId = 3;
+}
+
+enum SwitchType 
+{
+	 Open = 0;
+	 Close = 1;
+}
+
+message ReqOpReceiveWorldChatCmd
+{
+	 required SwitchType switchFlg = 1;
+}
+
+enum NoticeType 
+{
+	 Notice_Kick_Out = 0;
+}
+
+message AckNoticeClient
+{
+	 required NoticeType noticeType = 1;
+}
+
+message AckFlushUserInfo
+{
+	 required UserBaseInfo userBase = 1;
+}
+
+message ReqLogout
+{
+}

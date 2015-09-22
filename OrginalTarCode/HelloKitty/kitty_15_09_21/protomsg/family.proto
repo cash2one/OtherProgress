@@ -1,0 +1,203 @@
+package HelloKittyMsgData;
+import "common.proto";
+
+enum FamilyPublicType 
+{
+	 PublicForAll = 0;
+	 NoPublic = 1;
+	 Needapply = 2;
+	 MAXPublicType = 3;
+}
+
+enum FamilyJob 
+{
+	 Family_Leader = 0;
+	 Family_Member = 1;
+}
+
+enum FamilyOpResult 
+{
+	 FamilyOpResult_Suc = 0;
+	 FamilyOpResult_Suc2 = 1;
+	 FamilyOpResult_FamilyNoExist = 2;
+	 FamilyOpResult_HasFamily = 3;
+	 FamilyOpResult_ApplyMax = 4;
+	 FamilyOpResult_NoFamilyBuild = 5;
+	 FamilyOpResult_HasApply = 6;
+	 FamilyOpResult_SourceLimit = 7;
+	 FamilyOpResult_NoLeader = 8;
+	 FamilyOpResult_NoApply = 9;
+	 FamilyOpResult_NoFamily = 10;
+	 FamilyOpResult_LeaderCanNotQuit = 11;
+	 FamilyOpResult_OpSelf = 12;
+	 FamilyOpResult_NameTooLong = 13;
+	 FamilyOpResult_Nameillegal = 14;
+	 FamilyOpResult_NoticeToLong = 15;
+	 FamilyOpResult_Noticeillegal = 16;
+	 FamilyOpResult_LevelLimitErr = 17;
+	 FamilyOpResult_FamilyFull = 18;
+	 FamilyOpResult_NoPublic = 19;
+	 FamilyOpResult_NameTooShort = 20;
+	 FamilyOpResult_NoIcon = 21;
+	 FamilyOpResult_PublicSetErr = 22;
+	 FamilyOpResult_JoinLevelErr = 23;
+	 FamilyOpResult_ServerBusy = 24;
+	 FamilyOpResult_OtherErr = 25;
+}
+
+message BaseFamilyInfo
+{
+	 required uint64 familyid = 1;
+	 required string familyname = 2;
+	 required uint32 familyicon = 3;
+	 required uint32 personnum = 4;
+	 required uint32 relation = 5;
+	 required FamilyPublicType pulictype = 6;
+	 required uint32 lowlevel = 7;
+	 required uint32 highlevel = 8;
+	 required uint32 totalscore = 9;
+	 required uint32 familylevel = 10;
+	 required uint32 ranking = 11;
+	 required uint32 lastranking = 12;
+	 required string familynotice = 13;
+}
+
+message ReqGetFamilyList
+{
+	 required uint64 familyid = 1;
+}
+
+message AckReqGetFamilyList
+{
+	 required uint64 familyid = 1;
+	 required FamilyOpResult Result = 2;
+	 repeated BaseFamilyInfo vecfamily = 3;
+}
+
+message ReqAddFamily
+{
+	 required uint64 familyid = 1;
+}
+
+message AckReqAddFamily
+{
+	 required uint64 familyid = 1;
+	 required FamilyOpResult Result = 2;
+	 optional string familyname = 3 [default = ""];
+}
+
+message ReqCancelApply
+{
+	 required uint64 familyid = 1;
+}
+
+message AckReqCancelApply
+{
+	 required uint64 familyid = 1;
+	 required FamilyOpResult Result = 2;
+}
+
+message ReqCreateFamily
+{
+	 required string familyname = 1;
+	 required uint32 familyicon = 2;
+	 required FamilyPublicType pulictype = 3;
+	 required uint32 lowlevel = 4;
+	 required uint32 highlevel = 5;
+}
+
+message AckReqCreateFamily
+{
+	 required FamilyOpResult Result = 1;
+}
+
+message ReqAgreeJoin
+{
+	 required uint64 charid = 1;
+	 required uint32 isagree = 2;
+}
+
+message AckReqAgreeJoin
+{
+	 required FamilyOpResult Result = 1;
+	 required uint64 charid = 2;
+	 required uint32 isagree = 3;
+}
+
+message FamilyMember
+{
+	 required uint64 charid = 1;
+	 required string name = 2;
+	 required uint32 level = 3;
+	 optional FamilyJob job = 4 [default = Family_Member];
+}
+
+message FamilyInfo
+{
+	 required BaseFamilyInfo baseinfo = 1;
+	 repeated FamilyMember vecmember = 2;
+	 repeated FamilyMember vecappy = 3;
+}
+
+message ReqselfFamilyInfo
+{
+}
+
+message AckReqselfFamilyInfo
+{
+	 required FamilyOpResult Result = 1;
+	 optional FamilyInfo selfinfo = 2;
+}
+
+message ReqQuitFamily
+{
+}
+
+message AckReqQuitFamily
+{
+	 required FamilyOpResult Result = 1;
+}
+
+message ReqUpdateOtherFamilyJob
+{
+	 required uint64 charid = 1;
+}
+
+message AckUpdateOtherFamilyJob
+{
+	 required FamilyOpResult Result = 1;
+}
+
+message ReqKickFamilyMember
+{
+	 required uint64 charid = 1;
+}
+
+message AckReqKickFamilyMember
+{
+	 required FamilyOpResult Result = 1;
+}
+
+message ReqSetFamilyBaseInfo
+{
+	 required uint32 familyicon = 1;
+	 required FamilyPublicType pulictype = 2;
+	 required uint32 lowlevel = 3;
+	 required uint32 highlevel = 4;
+	 required string familynotice = 5;
+}
+
+message AckReqSetFamilyBaseInfo
+{
+	 required FamilyOpResult Result = 1;
+}
+
+message ReqFamilyRanking
+{
+}
+
+message AckReqFamilyRanking
+{
+	 required FamilyOpResult Result = 1;
+	 repeated BaseFamilyInfo vecfamily = 2;
+}

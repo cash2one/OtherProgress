@@ -1,0 +1,70 @@
+package HelloKittyMsgData;
+import "build.proto";
+import "common.proto";
+
+message AreaGrid
+{
+	 required Point point = 1;
+	 required bool isopen = 2;
+}
+
+message GateGrid
+{
+	 required Point point = 1;
+}
+
+message KittyGarden
+{
+	 required uint64 mapid = 1;
+	 required string mapname = 2;
+	 repeated AreaGrid areagrid = 3;
+	 repeated GateGrid gategrid = 4;
+}
+
+message ReqKittyGarden
+{
+	 required uint64 charid = 1;
+}
+
+message AckKittyGarden
+{
+	 required uint64 charid = 1;
+	 required KittyGarden kittygarden = 2;
+}
+
+message ReqOpenArea
+{
+	 required Point point = 1;
+}
+
+message AckFlushArea
+{
+	 required AreaGrid areagrid = 1;
+}
+
+enum GardenSuccessCodeType 
+{
+	 Garden_Open_Area = 0;
+}
+
+message AckGardenOpSuccess
+{
+	 required GardenSuccessCodeType code = 1;
+	 required AreaGrid areagrid = 2;
+}
+
+enum GardenFailCodeType 
+{
+	 Garden_Occupy = 0;
+	 Garden_Area_Close = 1;
+	 Garden_Point_Barrier = 3;
+	 Garden_Area_Illeag = 4;
+	 Garden_Area_Around_Close = 5;
+	 Garden_Area_Open_Again = 6;
+}
+
+message AckGardenOpFail
+{
+	 required ErrorCodeType commoncode = 1;
+	 required GardenFailCodeType code = 2;
+}

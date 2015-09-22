@@ -1,0 +1,22 @@
+package HelloKittyMsgData;
+
+enum OpToyType 
+{
+	 OTT_Req = 0;
+	 OTT_Rand = 1;
+}
+
+message ReqOpToy
+{
+	 required OpToyType optype = 1;
+}
+
+message AckToy
+{
+	 repeated uint32 toyid = 1;
+}
+
+message AckRandToy
+{
+	 required uint32 randtoyid = 1;
+}

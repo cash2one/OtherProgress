@@ -1,0 +1,40 @@
+package HelloKittyMsgData;
+
+enum BurstEventStatus 
+{
+	 BES_Accept = 0;
+	 BES_Del_Finish = 1;
+	 BES_Del_Road = 2;
+	 BES_Del_Other = 3;
+}
+
+message BurstEvent
+{
+	 required uint64 tempid = 1;
+	 required uint32 npckey = 2;
+	 required uint32 rewardkey = 3;
+	 required BurstEventStatus status = 4;
+	 required uint32 begintime = 5;
+}
+
+message ReqBurstEvent
+{
+	 optional uint64 tempid = 1 [default = 0];
+}
+
+message AckUpdateBurstEvent
+{
+	 repeated BurstEvent eventList = 1;
+}
+
+enum BurstEventOpType 
+{
+	 BEOT_Submit = 0;
+	 BEOT_Object = 1;
+}
+
+message ReqOpBurstEvent
+{
+	 required uint64 tempid = 1;
+	 required BurstEventOpType optype = 2;
+}

@@ -1,0 +1,102 @@
+package HelloKittyMsgData;
+import "common.proto";
+import "event.proto";
+
+enum RlationTypeServer 
+{
+	 RlationTypeServer_Friend = 0;
+}
+
+enum RlationTypeClient 
+{
+	 RlationTypeClient_None = 0;
+	 RlationTypeClient_IsFriend = 1;
+	 RlationTypeClient_IsFans = 2;
+	 RlationTypeClient_IsFriend2 = 3;
+}
+
+message MemberRelation
+{
+	 required uint64 PlayerId = 1;
+	 required string Playername = 2;
+	 required RlationTypeClient TypeRalation = 3;
+	 optional PlayerEvent Event = 4;
+	 required uint32 LoginOutTimer = 5;
+}
+
+message ReqAddFriend
+{
+	 required uint64 PlayerId = 1;
+}
+
+enum ReqAddFriendReSult 
+{
+	 ReqAddFriendReSult_Suc = 0;
+	 ReqAddFriendReSult_NoPerson = 1;
+	 ReqAddFriendReSult_IsFriendAlready = 2;
+	 ReqAddFriendReSult_Full = 3;
+	 ReqAddFriendReSult_Other = 4;
+}
+
+message AckAddFriend
+{
+	 required ReqAddFriendReSult ReSult = 1;
+	 required MemberRelation AckMember = 2;
+}
+
+message ReqKickFriend
+{
+	 required uint64 PlayerId = 1;
+}
+
+enum ReqKickFriendReSult 
+{
+	 ReqKickFriendReSult_Suc = 0;
+	 ReqKickFriendReSult_NoFriend = 1;
+	 ReqKickFriendReSult_Other = 2;
+}
+
+message AckKickFriend
+{
+	 required ReqKickFriendReSult ReSult = 1;
+	 required MemberRelation AckMember = 2;
+}
+
+enum ReqListType 
+{
+	 FriendList = 0;
+	 FansList = 1;
+	 RadomList = 2;
+}
+
+message ReqRelationList
+{
+	 required ReqListType ListType = 1;
+	 required uint32 PageMax = 2;
+	 required uint32 PageNo = 3;
+}
+
+message AckRelationList
+{
+	 required ReqListType ListType = 1;
+	 required uint32 AllPageNo = 2;
+	 required uint32 PageNo = 3;
+	 required uint32 PageMax = 4;
+	 repeated MemberRelation vecMember = 5;
+}
+
+enum FriendLineState 
+{
+	 FriendLineState_OnLine = 0;
+	 FriendLineState_OffLine = 1;
+	 FriendLineState_AddFriend = 2;
+	 FriendLineState_KickFriend = 3;
+	 FriendLineState_EventHappen = 4;
+	 FriendLineState_EventClose = 5;
+}
+
+message FriendFansChangeLine
+{
+	 required FriendLineState linestate = 1;
+	 required MemberRelation Member = 2;
+}

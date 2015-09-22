@@ -1,0 +1,118 @@
+package HelloKittyMsgData;
+import "common.proto";
+
+enum PlayerEventType 
+{
+	 PlayerEvent_None = 0;
+	 PlayerEvent_LoseBoy = 1;
+	 PlayerEvent_GoldHill = 2;
+	 PlayerEvent_FixBuild = 3;
+	 PlayerEvent_Plant = 4;
+}
+
+message PlayerEvent
+{
+	 optional uint32 EventID = 1 [default = 0];
+	 optional uint32 EndTimer = 2 [default = 0];
+}
+
+enum PlayerOpEventResult 
+{
+	 PlayerOpEventResult_Suc = 0;
+	 PlayerOpEventResult_CaseNoExist = 1;
+	 PlayerOpEventResult_SelfPacketFull = 2;
+	 PlayerOpEventResult_BoxFull = 3;
+	 PlayerOpEventResult_NOVisit = 4;
+	 PlayerOpEventResult_BoxNotFull = 5;
+	 PlayerOpEventResult_BuildNotExsit = 6;
+	 PlayerOpEventResult_Cool = 7;
+	 PlayerOpEventResult_OtherErr = 8;
+}
+
+enum EventProcess 
+{
+	 EventProcess_run = 0;
+	 EventProcess_final = 1;
+}
+
+message Award
+{
+	 optional uint32 awardtype = 1 [default = 0];
+	 optional uint32 awardval = 2 [default = 0];
+}
+
+message vecAward
+{
+	 repeated Award award = 1;
+}
+
+message SaveForEvent
+{
+	 required uint32 EventID = 1;
+	 required uint32 IsRun = 2;
+	 required uint32 FlushTimer = 3;
+	 optional uint32 EndTimer = 4 [default = 0];
+	 optional uint32 BuildID = 5 [default = 0];
+	 optional uint32 Value = 6 [default = 0];
+	 repeated uint64 OpPlayer = 7;
+	 repeated uint32 OpTimer = 8;
+}
+
+message opBuilding
+{
+	 required uint64 charid = 1;
+	 required uint64 buildid = 2;
+}
+
+message AckopBuilding
+{
+	 required PlayerOpEventResult result = 1;
+	 required uint64 charid = 2;
+	 required uint64 buildid = 3;
+	 optional uint32 eventid = 4 [default = 0];
+	 optional EventProcess process = 5 [default = EventProcess_run];
+	 repeated Award award = 6;
+	 optional uint32 extraid = 7 [default = 0];
+}
+
+message ReqclearSweetBox
+{
+	 required uint32 type = 1;
+}
+
+message AckclearSweetBox
+{
+	 required uint32 type = 1;
+	 required PlayerOpEventResult result = 2;
+	 repeated Award award = 3;
+}
+
+message returnEventAward
+{
+	 required uint64 charid = 1;
+	 required uint32 eventid = 2;
+	 optional uint32 isMail = 3 [default = 0];
+	 repeated Award award = 4;
+}
+
+message EventBuildNotice
+{
+	 required uint64 charid = 1;
+	 required uint32 eventid = 2;
+	 required uint64 BuildID = 3;
+	 optional uint32 data = 4 [default = 0];
+	 optional uint32 timerover = 5 [default = 0];
+	 optional uint32 lastoptimer = 6 [default = 0];
+}
+
+message EventNotice
+{
+	 required uint64 charid = 1;
+	 required uint32 eventid = 2;
+}
+
+message Evententer
+{
+	 repeated EventBuildNotice eventbuild = 1;
+	 repeated EventNotice eventinfo = 2;
+}

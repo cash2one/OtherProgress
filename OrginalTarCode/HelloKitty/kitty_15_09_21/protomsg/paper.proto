@@ -1,0 +1,31 @@
+package HelloKittyMsgData;
+
+message ReqPaper
+{
+}
+
+message PaperData
+{
+	 required uint32 paper = 1;
+	 required bool produceflg = 2;
+}
+
+message AckPaper
+{
+	 repeated PaperData paper = 1;
+}
+
+message AckUpdatePaper
+{
+	 required PaperData paper = 1;
+}
+
+message ReqOpPaper
+{
+	 required uint32 paper = 1;
+}
+
+message AckMakePaperSuccess
+{
+	 required PaperData paper = 1;
+}

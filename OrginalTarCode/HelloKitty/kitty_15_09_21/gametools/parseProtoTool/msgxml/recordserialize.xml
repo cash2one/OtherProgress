@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<protocol>
+	<import>
+		<member name="trade" desc="交易对应的proto"/>
+	</import>
+	
+	<proto name="RecordSerialize" desc="record服务器存档的二进制内容">
+		<member name="advertise" prefix="repeated" type="SellPaperCell" desc="角色二进制信息"/>
+	</proto>
+	
+</protocol>
+

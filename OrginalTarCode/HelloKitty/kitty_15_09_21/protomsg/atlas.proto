@@ -1,0 +1,15 @@
+package HelloKittyMsgData;
+
+message ReqAtlas
+{
+}
+
+message AckAtlas
+{
+	 repeated uint32 atlas = 1;
+}
+
+message AckAddAtlas
+{
+	 required uint32 atlas = 1;
+}

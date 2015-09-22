@@ -1,0 +1,28 @@
+package HelloKittyMsgData;
+import "trade.proto";
+import "kittygarden.proto";
+import "build.proto";
+import "common.proto";
+import "event.proto";
+
+message EnterGardenInfo
+{
+	 required uint64 charId = 1;
+	 required string name = 2;
+	 required uint32 level = 3;
+	 required uint64 exp = 4;
+	 repeated BuildBase buildinfo = 5;
+	 required KittyGarden kittygarden = 6;
+	 repeated RubbishData rubbish = 7;
+	 required Evententer eventinit = 8;
+}
+
+message ReqEnterGarden
+{
+	 required uint64 charid = 1;
+}
+
+message AckEnterGarden
+{
+	 required EnterGardenInfo gardenInfo = 1;
+}

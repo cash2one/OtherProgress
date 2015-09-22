@@ -1,0 +1,7 @@
+package HelloKittyMsgData;
+import "trade.proto";
+
+message RecordSerialize
+{
+	 repeated SellPaperCell advertise = 1;
+}

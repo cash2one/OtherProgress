@@ -1,0 +1,97 @@
+package HelloKittyMsgData;
+import "common.proto";
+
+enum PlaceStatusType 
+{
+	 Place_Status_Empty = 0;
+	 Place_Status_Suppend = 1;
+	 Place_Status_Work = 2;
+	 Place_Status_Wait = 3;
+	 Place_Status_Close = 4;
+}
+
+message FunctionCell
+{
+	 required uint32 placeid = 1;
+	 required uint32 produceid = 2;
+	 required uint32 worktime = 3;
+	 required uint32 lasttime = 4;
+	 required PlaceStatusType status = 5;
+}
+
+enum FunctionType 
+{
+	 Function_Type_Produce = 0;
+	 Function_Type_Composite = 1;
+}
+
+message StoreFunctionCell
+{
+	 required uint64 tempid = 1;
+	 required FunctionType type = 2;
+	 repeated FunctionCell functioncell = 3;
+}
+
+message ReqFunctionCell
+{
+	 required uint64 tempid = 1;
+	 required FunctionType type = 2;
+	 required uint32 placeid = 3 [default = 0];
+}
+
+message AckProduceItem
+{
+	 required StoreFunctionCell produceitem = 1;
+}
+
+message AckFunctionCell
+{
+	 required uint64 tempid = 1;
+	 required FunctionType type = 2;
+	 repeated FunctionCell functioncell = 3;
+}
+
+enum BTPOpFailType 
+{
+	 BTP_Occcupy = 0;
+	 BTP_Close = 1;
+	 BTP_Busy = 2;
+	 BTP_Not_Produce_Item = 3;
+	 BTP_Not_Composite_Item = 4;
+	 BTP_Is_Open = 5;
+	 BTP_Is_Not_Busy = 6;
+	 BTP_Is_Not_Wait = 7;
+	 BTP_Is_Max = 8;
+}
+
+message ReqFunctionCellWork
+{
+	 required uint64 tempid = 1;
+	 required FunctionType type = 2;
+	 required uint32 placeid = 3 [default = 0];
+	 required uint32 produceid = 4;
+}
+
+message AckBTPOpReturnFail
+{
+	 required uint64 tempid = 1;
+	 required FunctionType type = 2;
+	 required uint32 placeid = 3;
+	 required ErrorCodeType commoncode = 4;
+	 required BTPOpFailType code = 5;
+}
+
+enum BTPOpType 
+{
+	 BTP_Op_Purchase = 0;
+	 BTP_Op_Get_Item = 1;
+	 BTP_Op_Purchase_Cd = 2;
+}
+
+message ReqFunctionOp
+{
+	 required uint64 tempid = 1;
+	 required FunctionType type = 2;
+	 required uint32 placeid = 3;
+	 required BTPOpType optype = 4;
+}

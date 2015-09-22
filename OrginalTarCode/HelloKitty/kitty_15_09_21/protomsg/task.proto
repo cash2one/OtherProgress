@@ -1,0 +1,44 @@
+package HelloKittyMsgData;
+
+enum TaskStatus 
+{
+	 Task_Accept = 0;
+	 Task_Finish = 1;
+	 Task_Award = 2;
+}
+
+message Task
+{
+	 required uint64 id = 1;
+	 required TaskStatus status = 2;
+	 required uint32 current = 3;
+	 required uint32 total = 4;
+}
+
+enum TaskType 
+{
+	 Task_Type_Default = 0;
+	 Task_Type_Main = 1;
+	 Task_Type_Day = 2;
+}
+
+message ReqAllTask
+{
+	 optional TaskType tasktype = 1 [default = Task_Type_Default];
+}
+
+message AckAllTask
+{
+	 optional TaskType tasktype = 1 [default = Task_Type_Default];
+	 repeated Task task = 2;
+}
+
+message ReqSubmitTask
+{
+	 required uint64 id = 1;
+}
+
+message AckUpdateTask
+{
+	 required Task task = 1;
+}

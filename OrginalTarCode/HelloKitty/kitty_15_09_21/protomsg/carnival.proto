@@ -1,0 +1,39 @@
+package HelloKittyMsgData;
+
+message ReqOpenCarnical
+{
+}
+
+message AckOpenCarnical
+{
+	 required uint64 updatecharid = 1;
+	 required bool ret = 2;
+}
+
+message CarnivalShopData
+{
+	 required uint32 begintime = 1;
+	 required uint32 item = 2;
+	 repeated uint32 randitem = 3;
+	 required uint32 price = 4;
+}
+
+message AckUpdateCarnicalBox
+{
+	 required uint32 begintime = 1;
+	 required bool disapper = 2;
+}
+
+message ReqClickCarnicalBox
+{
+}
+
+message AckClickCarnicalBox
+{
+	 repeated uint32 randitem = 1;
+	 required uint32 price = 2;
+}
+
+message ReqBuyCarnicalBox
+{
+}

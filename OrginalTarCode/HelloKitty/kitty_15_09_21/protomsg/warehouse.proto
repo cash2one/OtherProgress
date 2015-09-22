@@ -1,0 +1,51 @@
+package HelloKittyMsgData;
+import "trade.proto";
+import "build.proto";
+
+enum StoreItemType 
+{
+	 Store_Type_Ware_House = 0;
+	 Store_Type_Build = 1;
+	 Store_Type_Sale = 2;
+}
+
+message ReqStoreItem
+{
+	 required StoreItemType type = 1;
+	 required uint64 charid = 2;
+}
+
+message AckFlushWareHouse
+{
+	 repeated PbStoreItem store_items = 1;
+}
+
+message ReqAddItem
+{
+	 required PbStoreItem item = 1;
+}
+
+message AckUpdateItem
+{
+	 required PbStoreItem item = 1;
+}
+
+message AckAddItemReturn
+{
+	 required bool ret = 1;
+}
+
+message AckFlushWareBuild
+{
+	 repeated WareHouseBuildBase warebuild = 1;
+}
+
+message AckUpdateWareBuid
+{
+	 required WareHouseBuildBase warebuild = 1;
+}
+
+message ReqPayGrid
+{
+	 required uint32 grid = 1;
+}

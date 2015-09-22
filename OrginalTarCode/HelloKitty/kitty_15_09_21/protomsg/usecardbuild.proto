@@ -1,0 +1,31 @@
+package HelloKittyMsgData;
+
+message UseCardInfo
+{
+	 required uint64 tempid = 1;
+	 required uint32 cardid = 2;
+	 required uint32 usecardtime = 3;
+}
+
+enum BuildCardOpType 
+{
+	 BCO_Req = 0;
+	 BCO_Del = 1;
+}
+
+message ReqOpCard
+{
+	 required uint64 tempid = 1;
+	 required BuildCardOpType optype = 2;
+}
+
+message AckUpdateCard
+{
+	 required UseCardInfo cardinfo = 1;
+}
+
+message ReqUserCard
+{
+	 required uint64 tempid = 1;
+	 required uint32 item = 2;
+}

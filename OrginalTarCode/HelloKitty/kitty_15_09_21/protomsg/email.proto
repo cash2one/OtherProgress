@@ -1,0 +1,64 @@
+package HelloKittyMsgData;
+import "trade.proto";
+
+enum EmailStatusType 
+{
+	 Email_Status_Accept = 0;
+	 Email_Status_Read = 1;
+	 Email_Status_Delete = 2;
+}
+
+message EmailBase
+{
+	 required uint64 accepter = 1;
+	 required string acceptername = 2;
+	 required string title = 3;
+	 required string conten = 4;
+	 repeated PbStoreItem item = 5;
+}
+
+message EmailInfo
+{
+	 required uint64 id = 1;
+	 required uint64 sender = 2;
+	 required string sendername = 3;
+	 required EmailBase emailbase = 4;
+	 required uint64 createtime = 5;
+	 required EmailStatusType status = 6;
+	 optional bool popup = 7 [default = false];
+}
+
+message ReqEmail
+{
+	 optional uint64 id = 1 [default = 0];
+}
+
+message ReqSendEmail
+{
+	 required EmailBase emailbase = 1;
+}
+
+message AckEmail
+{
+	 repeated EmailInfo email = 1;
+}
+
+message AckUpdateEmail
+{
+	 required EmailInfo email = 1;
+}
+
+enum EmailOpType 
+{
+	 Email_Op_Read = 0;
+	 Email_Status_Close = 1;
+	 Email_Op_Get_Item = 2;
+	 Email_Op_Get_Item_All = 3;
+	 Email_Op_Delete = 4;
+}
+
+message ReqOpEmail
+{
+	 required uint64 id = 1;
+	 required EmailOpType optype = 2;
+}

@@ -1,0 +1,70 @@
+package HelloKittyMsgData;
+import "item.proto";
+import "trade.proto";
+import "build.proto";
+import "kittygarden.proto";
+import "task.proto";
+import "achievement.proto";
+import "event.proto";
+import "email.proto";
+import "produceitem.proto";
+import "usecardbuild.proto";
+import "dress.proto";
+import "divine.proto";
+import "paper.proto";
+import "burstevent.proto";
+
+message HappyData
+{
+	 required uint32 grade = 1 [default = 0];
+	 required uint32 frequency = 2 [default = 0];
+	 required uint32 time = 3 [default = 0];
+}
+
+message DailyData
+{
+	 required uint32 dailydatatime = 1;
+	 required uint32 addgold = 2;
+	 required uint32 addgem = 3;
+	 required uint32 addexp = 4;
+	 required uint32 addhappy = 5;
+	 required uint32 addfriend = 6;
+	 required uint32 vistorother = 7;
+	 required uint32 addatlas = 8;
+	 required uint32 finishburstevent = 9;
+	 required uint32 buildorlevel = 10;
+	 required uint32 randtoy = 11;
+	 required DivineData divine = 12;
+}
+
+message CharBin
+{
+	 required HappyData happy_low = 1;
+	 required HappyData happy_mid = 2;
+	 required HappyData happy_hight = 3;
+	 required DailyData dailydata = 4;
+	 required DressData dress = 5;
+}
+
+message Serialize
+{
+	 required CharBin charbin = 1;
+	 repeated PbStoreItem store_items = 2;
+	 required PbSaleBooth saleBooth = 3;
+	 repeated SellPaper sellpaper = 4;
+	 required KittyGarden kittygarden = 5;
+	 repeated BuildBase buildbase = 6;
+	 repeated BuildProduce buildproduce = 7;
+	 repeated StoreFunctionCell functioncell = 8;
+	 repeated UseCardInfo usecard = 9;
+	 repeated WareHouseBuildBase warebuild = 10;
+	 repeated Worker worker = 11;
+	 repeated Task task = 12;
+	 repeated uint32 atlas = 13;
+	 repeated AchieveMent achievement = 14;
+	 repeated SaveForEvent event = 15;
+	 repeated EmailInfo email = 16;
+	 repeated DressData dress = 17;
+	 repeated PaperData paper = 18;
+	 repeated BurstEvent burstevent = 19;
+}

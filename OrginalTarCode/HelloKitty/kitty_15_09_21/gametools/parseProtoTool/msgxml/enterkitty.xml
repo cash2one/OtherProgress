@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<protocol>	
+	<import>
+		<member name="trade" desc="交易对应的proto"/>
+        <member name="kittygarden" desc="地图对应的proto"/>
+        <member name="build" desc="建筑对应的proto"/>
+        <member name="common" desc="公共对应的proto"/>
+        <member name="event" desc="事件对应的proto"/>
+	</import>
+	
+	<proto name="EnterGardenInfo" desc="请求进入玩家的乐园">
+		<member name="charId" prefix="required" type="uint64" desc="角色id"/>
+		<member name="name" prefix="required" type="string" desc="昵称"/>
+		<member name="level" prefix="required" type="uint32" desc="等级"/>
+		<member name="exp" prefix="required" type="uint64" desc="经验"/>
+		<member name="buildinfo" prefix="repeated" type="BuildBase" desc="建筑基本信息"/>
+		<member name="kittygarden" prefix="required" type="KittyGarden" desc="kitty乐园"/>
+		<member name="rubbish" prefix="repeated" type="RubbishData" desc="垃圾和糖果信息"/>
+        <member name="eventinit" prefix="required" type="Evententer" desc="事件"/>
+
+	</proto>
+	
+	
+	<proto name="ReqEnterGarden" desc="请求进入玩家的乐园">
+		<member name="charid" prefix="required" type="uint64" desc="charid"/>
+	</proto>
+	
+	<proto name="AckEnterGarden" desc="请求进入玩家的乐园">
+		<member name="gardenInfo" prefix="required" type="EnterGardenInfo" desc="乐园信息"/>
+	</proto>
+	
+</protocol>
+

@@ -1,0 +1,16 @@
+package HelloKittyMsgData;
+
+message ReqGM
+{
+	 required string command = 1;
+}
+
+message ReqGMSession
+{
+	 required string command = 1;
+}
+
+message AckGM
+{
+	 required string ret = 1;
+}

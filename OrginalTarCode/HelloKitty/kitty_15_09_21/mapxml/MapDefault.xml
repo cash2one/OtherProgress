@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MapDefaultData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <sMapInfo>
+        <sMapInfoItem ID="1" Name="HelloKittyHomeDefault">
+            <AreaList>
+                <MapAreaItem GridX="1" GridY="1" IsOpen="true" />
+                <MapAreaItem GridX="1" GridY="3" IsOpen="false" />
+                <MapAreaItem GridX="1" GridY="2" IsOpen="true" />
+                <MapAreaItem GridX="2" GridY="2" IsOpen="true" />
+                <MapAreaItem GridX="2" GridY="3" IsOpen="false" />
+                <MapAreaItem GridX="2" GridY="4" IsOpen="false" />
+                <MapAreaItem GridX="3" GridY="4" IsOpen="false" />
+                <MapAreaItem GridX="3" GridY="3" IsOpen="false" />
+                <MapAreaItem GridX="3" GridY="2" IsOpen="false" />
+                <MapAreaItem GridX="3" GridY="1" IsOpen="false" />
+                <MapAreaItem GridX="2" GridY="1" IsOpen="true" />
+                <MapAreaItem GridX="1" GridY="4" IsOpen="false" />
+                <MapAreaItem GridX="0" GridY="3" IsOpen="false" />
+                <MapAreaItem GridX="0" GridY="2" IsOpen="true" />
+                <MapAreaItem GridX="0" GridY="1" IsOpen="true" />
+                <MapAreaItem GridX="0" GridY="4" IsOpen="false" />
+                <MapAreaItem GridX="-1" GridY="5" IsOpen="false" />
+                <MapAreaItem GridX="-2" GridY="6" IsOpen="false" />
+                <MapAreaItem GridX="-1" GridY="6" IsOpen="false" />
+                <MapAreaItem GridX="0" GridY="5" IsOpen="false" />
+                <MapAreaItem GridX="1" GridY="5" IsOpen="false" />
+                <MapAreaItem GridX="2" GridY="5" IsOpen="false" />
+                <MapAreaItem GridX="1" GridY="6" IsOpen="false" />
+                <MapAreaItem GridX="0" GridY="7" IsOpen="false" />
+                <MapAreaItem GridX="-1" GridY="7" IsOpen="false" />
+                <MapAreaItem GridX="-3" GridY="5" IsOpen="false" />
+                <MapAreaItem GridX="-4" GridY="4" IsOpen="false" />
+                <MapAreaItem GridX="-5" GridY="3" IsOpen="false" />
+                <MapAreaItem GridX="-6" GridY="1" IsOpen="false" />
+                <MapAreaItem GridX="-6" GridY="2" IsOpen="false" />
+                <MapAreaItem GridX="-7" GridY="1" IsOpen="false" />
+                <MapAreaItem GridX="-8" GridY="0" IsOpen="false" />
+                <MapAreaItem GridX="-9" GridY="-1" IsOpen="false" />
+                <MapAreaItem GridX="5" GridY="-3" IsOpen="false" />
+                <MapAreaItem GridX="6" GridY="-2" IsOpen="false" />
+                <MapAreaItem GridX="7" GridY="-1" IsOpen="false" />
+                <MapAreaItem GridX="7" GridY="0" IsOpen="false" />
+                <MapAreaItem GridX="6" GridY="1" IsOpen="false" />
+                <MapAreaItem GridX="5" GridY="2" IsOpen="false" />
+                <MapAreaItem GridX="4" GridY="3" IsOpen="false" />
+                <MapAreaItem GridX="6" GridY="-1" IsOpen="false" />
+                <MapAreaItem GridX="5" GridY="-2" IsOpen="false" />
+                <MapAreaItem GridX="4" GridY="-3" IsOpen="false" />
+                <MapAreaItem GridX="6" GridY="0" IsOpen="false" />
+                <MapAreaItem GridX="4" GridY="-2" IsOpen="false" />
+                <MapAreaItem GridX="3" GridY="-3" IsOpen="false" />
+                <MapAreaItem GridX="5" GridY="-1" IsOpen="false" />
+                <MapAreaItem GridX="5" GridY="0" IsOpen="false" />
+                <MapAreaItem GridX="5" GridY="1" IsOpen="false" />
+                <MapAreaItem GridX="4" GridY="2" IsOpen="false" />
+                <MapAreaItem GridX="0" GridY="6" IsOpen="false" />
+                <MapAreaItem GridX="-2" GridY="5" IsOpen="false" />
+                <MapAreaItem GridX="-3" GridY="4" IsOpen="false" />
+                <MapAreaItem GridX="-4" GridY="3" IsOpen="false" />
+                <MapAreaItem GridX="-5" GridY="2" IsOpen="false" />
+                <MapAreaItem GridX="-7" GridY="0" IsOpen="false" />
+                <MapAreaItem GridX="-8" GridY="-1" IsOpen="false" />
+                <MapAreaItem GridX="-7" GridY="-2" IsOpen="false" />
+                <MapAreaItem GridX="-8" GridY="-2" IsOpen="false" />
+                <MapAreaItem GridX="-7" GridY="-3" IsOpen="false" />
+                <MapAreaItem GridX="-6" GridY="-3" IsOpen="false" />
+                <MapAreaItem GridX="-5" GridY="-3" IsOpen="false" />
+                <MapAreaItem GridX="-4" GridY="-3" IsOpen="false" />
+                <MapAreaItem GridX="-3" GridY="-3" IsOpen="true" />
+                <MapAreaItem GridX="-2" GridY="-3" IsOpen="true" />
+                <MapAreaItem GridX="-1" GridY="-3" IsOpen="true" />
+                <MapAreaItem GridX="0" GridY="-3" IsOpen="true" />
+                <MapAreaItem GridX="1" GridY="-3" IsOpen="true" />
+                <MapAreaItem GridX="2" GridY="-3" IsOpen="true" />
+                <MapAreaItem GridX="2" GridY="-2" IsOpen="true" />
+                <MapAreaItem GridX="3" GridY="-2" IsOpen="false" />
+                <MapAreaItem GridX="4" GridY="-1" IsOpen="false" />
+                <MapAreaItem GridX="4" GridY="0" IsOpen="false" />
+                <MapAreaItem GridX="4" GridY="1" IsOpen="false" />
+                <MapAreaItem GridX="3" GridY="0" IsOpen="false" />
+                <MapAreaItem GridX="3" GridY="-1" IsOpen="false" />
+                <MapAreaItem GridX="2" GridY="-1" IsOpen="true" />
+                <MapAreaItem GridX="2" GridY="0" IsOpen="true" />
+                <MapAreaItem GridX="1" GridY="0" IsOpen="true" />
+                <MapAreaItem GridX="0" GridY="0" IsOpen="true" />
+                <MapAreaItem GridX="-1" GridY="1" IsOpen="true" />
+                <MapAreaItem GridX="-1" GridY="2" IsOpen="true" />
+                <MapAreaItem GridX="-1" GridY="3" IsOpen="false" />
+                <MapAreaItem GridX="-1" GridY="4" IsOpen="false" />
+                <MapAreaItem GridX="-2" GridY="4" IsOpen="false" />
+                <MapAreaItem GridX="-3" GridY="3" IsOpen="false" />
+                <MapAreaItem GridX="-2" GridY="3" IsOpen="false" />
+                <MapAreaItem GridX="-2" GridY="2" IsOpen="true" />
+                <MapAreaItem GridX="-3" GridY="2" IsOpen="true" />
+                <MapAreaItem GridX="-4" GridY="2" IsOpen="false" />
+                <MapAreaItem GridX="-6" GridY="0" IsOpen="false" />
+                <MapAreaItem GridX="-5" GridY="1" IsOpen="false" />
+                <MapAreaItem GridX="-7" GridY="-1" IsOpen="false" />
+                <MapAreaItem GridX="-6" GridY="-1" IsOpen="false" />
+                <MapAreaItem GridX="-6" GridY="-2" IsOpen="false" />
+                <MapAreaItem GridX="-5" GridY="0" IsOpen="false" />
+                <MapAreaItem GridX="-5" GridY="-1" IsOpen="false" />
+                <MapAreaItem GridX="-5" GridY="-2" IsOpen="false" />
+                <MapAreaItem GridX="-4" GridY="-2" IsOpen="false" />
+                <MapAreaItem GridX="-4" GridY="1" IsOpen="false" />
+                <MapAreaItem GridX="-4" GridY="0" IsOpen="false" />
+                <MapAreaItem GridX="-4" GridY="-1" IsOpen="false" />
+                <MapAreaItem GridX="-3" GridY="0" IsOpen="true" />
+                <MapAreaItem GridX="-3" GridY="1" IsOpen="true" />
+                <MapAreaItem GridX="-2" GridY="1" IsOpen="true" />
+                <MapAreaItem GridX="-2" GridY="0" IsOpen="true" />
+                <MapAreaItem GridX="-3" GridY="-1" IsOpen="true" />
+                <MapAreaItem GridX="-3" GridY="-2" IsOpen="true" />
+                <MapAreaItem GridX="-2" GridY="-2" IsOpen="true" />
+                <MapAreaItem GridX="-1" GridY="0" IsOpen="true" />
+                <MapAreaItem GridX="-2" GridY="-1" IsOpen="true" />
+                <MapAreaItem GridX="1" GridY="-2" IsOpen="true" />
+                <MapAreaItem GridX="1" GridY="-1" IsOpen="true" />
+                <MapAreaItem GridX="0" GridY="-1" IsOpen="true" />
+                <MapAreaItem GridX="-1" GridY="-1" IsOpen="true" />
+                <MapAreaItem GridX="-1" GridY="-2" IsOpen="true" />
+                <MapAreaItem GridX="0" GridY="-2" IsOpen="true" />
+            </AreaList>
+            <GateList>
+                <MapGateItem GridX="8" GridY="-15" />
+                <MapGateItem GridX="8" GridY="-14" />
+                <MapGateItem GridX="7" GridY="-14" />
+                <MapGateItem GridX="5" GridY="-14" />
+                <MapGateItem GridX="6" GridY="-14" />
+                <MapGateItem GridX="4" GridY="-14" />
+                <MapGateItem GridX="3" GridY="-14" />
+                <MapGateItem GridX="2" GridY="-14" />
+                <MapGateItem GridX="-1" GridY="-14" />
+                <MapGateItem GridX="0" GridY="-14" />
+                <MapGateItem GridX="-2" GridY="-14" />
+                <MapGateItem GridX="-3" GridY="-14" />
+                <MapGateItem GridX="-4" GridY="-14" />
+                <MapGateItem GridX="-5" GridY="-14" />
+                <MapGateItem GridX="-6" GridY="-14" />
+                <MapGateItem GridX="-7" GridY="-14" />
+                <MapGateItem GridX="-8" GridY="-15" />
+                <MapGateItem GridX="-7" GridY="-15" />
+                <MapGateItem GridX="-6" GridY="-15" />
+                <MapGateItem GridX="-5" GridY="-15" />
+                <MapGateItem GridX="-4" GridY="-15" />
+                <MapGateItem GridX="-3" GridY="-15" />
+                <MapGateItem GridX="-1" GridY="-15" />
+                <MapGateItem GridX="-2" GridY="-15" />
+                <MapGateItem GridX="0" GridY="-15" />
+                <MapGateItem GridX="1" GridY="-15" />
+                <MapGateItem GridX="2" GridY="-15" />
+                <MapGateItem GridX="3" GridY="-15" />
+                <MapGateItem GridX="4" GridY="-15" />
+                <MapGateItem GridX="5" GridY="-15" />
+                <MapGateItem GridX="7" GridY="-15" />
+                <MapGateItem GridX="6" GridY="-15" />
+            </GateList>
+        </sMapInfoItem>
+    </sMapInfo>
+</MapDefaultData>

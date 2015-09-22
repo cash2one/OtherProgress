@@ -1,0 +1,21 @@
+package HelloKittyMsgData;
+
+message ReqUseItem
+{
+	 required uint32 itemID = 1;
+	 required uint32 num = 2;
+}
+
+enum UseItemFailType 
+{
+	 Fail_Item_Illeay = 0;
+	 Fail_Item_Not_Enough = 1;
+	 Fail_Item_Level_Limited = 2;
+	 Fail_Item_Premise_Limited = 3;
+}
+
+message AckUseItemReturn
+{
+	 required bool ret = 1;
+	 required UseItemFailType reason = 2;
+}

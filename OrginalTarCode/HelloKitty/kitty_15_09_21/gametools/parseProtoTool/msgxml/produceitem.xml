@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<protocol>	
+
+	<import>
+		<member name="common" desc="公共对应的proto"/>
+	</import>
+	
+	<enum name="PlaceStatusType" desc="位置的几种状态">
+		<member name="Place_Status_Empty" value="0" desc="空闲状态"/>
+		<member name="Place_Status_Suppend" value= "1" desc="暂停状态"/>
+		<member name="Place_Status_Work" value="2" desc="工作状态"/>
+		<member name="Place_Status_Wait" value="3" desc="等待客户端领取物品状态"/>
+		<member name="Place_Status_Close" value="4" desc="未开通状态"/>
+	</enum>
+	
+	<proto name="FunctionCell" desc="功能槽">
+		<member name="placeid" prefix="required" type="uint32" desc="位置id"/>
+		<member name="produceid" prefix="required" type="uint32" desc="产生id(表格中的id)"/>
+		<member name="worktime" prefix="required" type="uint32" desc="开始工作系统时间"/>
+		<member name="lasttime" prefix="required" type="uint32" desc="剩余秒数"/>
+		<member name="status" prefix="required" type="PlaceStatusType" desc="产生道具类型id"/>
+	</proto>
+	
+	<enum name="FunctionType" desc="功能类型">
+		<member name="Function_Type_Produce" value="0" desc="生产"/>
+		<member name="Function_Type_Composite" value="1" desc="合并"/>
+	</enum>
+	
+	<proto name="StoreFunctionCell" desc="请求功能槽队列">
+		<member name="tempid" prefix="required" type="uint64" desc="建筑实例id"/>
+		<member name="type" prefix="required" type="FunctionType" desc="功能类型"/>
+		<member name="functioncell" prefix="repeated" type="FunctionCell" desc=""/>
+	</proto>
+	
+	
+	<proto name="ReqFunctionCell" desc="请求功能槽队列">
+		<member name="tempid" prefix="required" type="uint64" desc="建筑实例id"/>
+		<member name="type" prefix="required" type="FunctionType" desc="请求类型"/>
+		<member name="placeid" prefix="required" type="uint32" default="0" desc="位置id(请求单个和多个)"/>
+	</proto>
+	
+	<proto name="AckProduceItem" desc="请求功能槽队列">
+		<member name="produceitem" prefix="required" type="StoreFunctionCell" desc="建筑实例id"/>
+	</proto>
+	
+	<proto name="AckFunctionCell" desc="请求功能槽队列">
+		<member name="tempid" prefix="required" type="uint64" desc="建筑实例id"/>
+		<member name="type" prefix="required" type="FunctionType" desc="请求类型"/>
+		<member name="functioncell" prefix="repeated" type="FunctionCell" desc=""/>
+	</proto>
+	
+	<enum name="BTPOpFailType" desc="位置的几种状态">
+		<member name="BTP_Occcupy" value="0" desc="占位，跟别的原因配合使用"/>
+		<member name="BTP_Close" value="1" desc="工作槽未开通"/>
+		<member name="BTP_Busy" value="2" desc="工作槽处于繁忙"/>
+		<member name="BTP_Not_Produce_Item" value="3" desc="工作槽处于繁忙"/>
+		<member name="BTP_Not_Composite_Item" value="4" desc="工作槽处于繁忙"/>
+		<member name="BTP_Is_Open" value="5" desc="工作槽已经开通了"/>
+		<member name="BTP_Is_Not_Busy" value="6" desc="工作槽不处于繁忙状态"/>
+		<member name="BTP_Is_Not_Wait" value="7" desc="工作槽不处于等待状态"/>
+		<member name="BTP_Is_Max" value="8" desc="工作槽已达上限"/>
+	</enum>
+	
+	<proto name="ReqFunctionCellWork" desc="请求功能槽开始工作">
+		<member name="tempid" prefix="required" type="uint64" desc="建筑实例id"/>
+		<member name="type" prefix="required" type="FunctionType" desc="请求类型"/>
+		<member name="placeid" prefix="required" type="uint32" default="0" desc="位置id"/>
+		<member name="produceid" prefix="required" type="uint32" desc="生产id"/>
+	</proto>
+	
+	<proto name="AckBTPOpReturnFail" desc="操作失败返回">
+		<member name="tempid" prefix="required" type="uint64" desc="建筑实例id"/>
+		<member name="type" prefix="required" type="FunctionType" desc="请求类型"/>
+		<member name="placeid" prefix="required" type="uint32" desc="位置id"/>
+		<member name="commoncode" prefix="required" type="ErrorCodeType" desc="建筑失败操作类型(公共错误)"/>
+		<member name="code" prefix="required" type="BTPOpFailType" desc="建筑失败操作类型"/>
+	</proto>
+	
+	<enum name="BTPOpType" desc="操作类型">
+		<member name="BTP_Op_Purchase" value="0" desc="购买工作槽"/>
+		<member name="BTP_Op_Get_Item" value="1" desc="拿取已经生成好的道具"/>
+		<member name="BTP_Op_Purchase_Cd" value="2" desc="购买cd"/>
+	</enum>
+	
+	<proto name="ReqFunctionOp" desc="请求功能槽开始操作">
+		<member name="tempid" prefix="required" type="uint64" desc="建筑实例id"/>
+		<member name="type" prefix="required" type="FunctionType" desc="请求类型"/>
+		<member name="placeid" prefix="required" type="uint32" desc="位置id"/>
+		<member name="optype" prefix="required" type="BTPOpType" desc="操作类型"/>
+	</proto>
+	
+</protocol>
+

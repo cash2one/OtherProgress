@@ -1,0 +1,131 @@
+package HelloKittyMsgData;
+import "common.proto";
+
+message PbStoreItem
+{
+	 required uint32 itemId = 1;
+	 required uint32 itemCount = 2;
+}
+
+enum SaleCellStatusType 
+{
+	 Sale_Status_Empty = 0;
+	 Sale_Status_For_Sale = 1;
+	 Sale_Status_Sale_End = 2;
+	 Sale_Status_Close = 3;
+}
+
+message PbSaleCell
+{
+	 required uint32 cellId = 1 [default = 0];
+	 required uint32 itemId = 2 [default = 0];
+	 required uint32 itemCount = 3 [default = 0];
+	 required uint32 price = 4 [default = 0];
+	 required SaleCellStatusType status = 5 [default = Sale_Status_Empty];
+	 required string nickName = 6 [default = ""];
+	 required bool advertise = 7 [default = false];
+}
+
+message AckPbSaleCeilFlush
+{
+	 required uint64 charid = 1;
+	 required PbSaleCell saleCell = 2;
+}
+
+message PbSaleBooth
+{
+	 repeated PbSaleCell saleCell = 1;
+}
+
+message AckFlushSaleBooth
+{
+	 required uint64 charid = 1;
+	 optional PbSaleBooth saleBooth = 2;
+}
+
+message ReqSallPutItem
+{
+	 required uint32 cellId = 1;
+	 required uint32 itemId = 2;
+	 required uint32 itemCount = 3;
+	 required uint32 price = 4;
+	 required bool advertise = 5;
+}
+
+enum OpCellType 
+{
+	 Op_Type_Open_Cell = 0;
+	 Op_Type_Down_Item = 1;
+	 Op_Type_Get_Money = 2;
+}
+
+message ReqOpCell
+{
+	 required uint32 cellId = 1;
+	 required OpCellType optype = 2;
+}
+
+enum RandPaperType 
+{
+	 Rand_Passer_By = 0;
+	 Rand_Friend = 1;
+}
+
+message ReqSellPaper
+{
+	 required RandPaperType randtype = 1;
+}
+
+message SellPaperCell
+{
+	 required uint64 charid = 1;
+	 required string nickname = 2;
+	 required PbSaleCell salecell = 3;
+}
+
+message AckSellPaper
+{
+	 required SellPaper sellpaper = 1;
+}
+
+message SellPaper
+{
+	 required RandPaperType randtype = 1;
+	 required uint32 createTime = 2;
+	 repeated SellPaperCell paperCell = 3;
+}
+
+enum TradeFailCodeType 
+{
+	 Trade_Occupy = 0;
+	 Trade_Op_Close = 1;
+	 Trade_Op_Not_Empty = 2;
+	 Trade_Op_Item_Not_Enough = 3;
+	 Trade_Op_Empty = 4;
+	 Trade_Op_Full = 5;
+	 Trade_Op_Open = 6;
+	 Trade_Advertise_Again = 7;
+}
+
+message AckTradeOpFail
+{
+	 required ErrorCodeType commoncode = 1;
+	 required TradeFailCodeType code = 2;
+}
+
+message ReqAdvertise
+{
+	 required uint32 cellId = 1;
+}
+
+message ReqSallSystem
+{
+	 required uint32 itemid = 1;
+	 required uint32 itemCount = 2 [default = 0];
+}
+
+message ReqPurchase
+{
+	 required uint64 charid = 1;
+	 required uint32 cellid = 2;
+}

@@ -1,0 +1,44 @@
+package HelloKittyMsgData;
+import "build.proto";
+
+message DressData
+{
+	 required uint32 id = 1;
+	 required uint32 level = 2;
+}
+
+message ReqDress
+{
+}
+
+message AckDress
+{
+	 repeated DressData dress = 1;
+}
+
+message AckUpdateDress
+{
+	 required DressData dress = 1;
+}
+
+enum DressOpType 
+{
+	 DOT_Change = 0;
+	 DOT_UpLevel = 1;
+}
+
+message ReqOpDress
+{
+	 required uint32 id = 1;
+	 required DressOpType optype = 2;
+}
+
+message AckExternBuffer
+{
+	 repeated BufferData bufferdata = 1;
+}
+
+message AckBodyDress
+{
+	 required DressData dress = 1;
+}

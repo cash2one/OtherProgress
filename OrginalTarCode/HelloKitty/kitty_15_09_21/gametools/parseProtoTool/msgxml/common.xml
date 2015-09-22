@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<protocol>	
+	
+	<enum name="ErrorCodeType" desc="错误类型">
+		<member name="Error_Common_Occupy" value="0" desc="占位，跟别的原因配合使用"/>
+		<member name="Gold_Not_Enough" value="1" desc="金币不够"/>
+		<member name="Gem_Not_Enough" value="2" desc="钻石不够"/>
+		<member name="Level_Not_Enough" value="3" desc="等级过低"/>
+		<member name="Guest_Not_Enough" value="4" desc="游客不够"/>
+		<member name="Friend_Val_Not_Enough" value="5" desc="友情值不够"/>
+		<member name="Happy_Val_Not_Enough" value="6" desc="愉悦度不够"/>
+		<member name="Material_Not_Enough" value="7" desc="材料不够"/>
+		<member name="WareHouse_Is_Full" value="8" desc="仓库已满"/>
+		<member name="Worker_Not_Enough" value="9" desc="工人数不足"/>
+		<member name="Build_In_CD" value="10" desc="建筑处于cd中"/>
+		<member name="Item_Not_Enough" value="11" desc="道具不够"/>
+		<member name="Email_Is_Enough" value="12" desc="邮箱已满"/>
+		<member name="Player_Not_Exist" value="13" desc="角色不存在"/>
+		<member name="Email_Is_Empty" value="14" desc="邮件内容为空"/>
+		<member name="Card_Is_Used" value="15" desc="卡牌正在使用中"/>
+		<member name="Card_Is_Not_Suit" value="16" desc="此建筑不能用卡牌"/>
+	</enum>
+	
+	<enum name="BufferTypeID" desc="建筑bufferID">
+		<member name="Buffer_Type_Gold" value="1" desc="金币buffer"/>
+		<member name="Buffer_Type_Range" value="2" desc="距离buffer"/>
+	</enum>
+	
+	<proto name="AckReturnError" desc="返回失败">
+		<member name="reason" prefix="required" type="ErrorCodeType" desc="失败原因"/>
+	</proto>
+	
+	<enum name="SuccessCodeType" desc="成功类型">
+		<member name="Sale_Cell_Op" value="3" desc="摊位格操作成功"/>
+	</enum>
+	
+	<proto name="AckReturnSuccess" desc="返回成功">
+		<member name="code" prefix="required" type="SuccessCodeType" desc="成功类型"/>
+	</proto>
+	
+	<enum name="AttrType" desc="属性类型类型">
+		<member name="Attr_Level" value="0" desc="等级"/>
+		<member name="Attr_Gold" value="1" desc="金币"/>
+		<member name="Attr_Gem" value="2" desc="钻石"/>
+		<member name="Attr_Exp" value="3" desc="经验"/>
+		<member name="Attr_Worker" value="4" desc="工人数"/>
+		<member name="Attr_Happy_Val" value="5" desc="愉悦度"/>
+		<member name="Attr_Friend_Val" value="6" desc="友情值"/>
+		<member name="Attr_Ware_Grid_Val" value="7" desc="仓库格子数量"/>
+        <member name="Attr_Carnival_Val" value="8" desc="嘉年华数值"/> 
+        <member name="Attr_Sweet_Val" value="9" desc="糖果罐数值"/> 
+		<member name="Attr_RandToy_Val" value="10" desc="扭蛋次数"/> 
+		<member name="Attr_Sall_Grid_Val" value="11" desc="摊位数值"/>
+        <member name="Attr_Max" value="20" desc="属性最大值"/>
+
+	</enum>
+	
+	<proto name="AckUpdateAttrVal" desc="更新角色基本属性值">
+		<member name="updatechar" prefix="required" type="uint64" desc="角色id"/>
+		<member name="attrtype" prefix="required" type="AttrType" desc="属性类型"/>
+		<member name="attrval" prefix="required" type="uint32" desc="属性值"/>
+	</proto>
+
+    <proto name="RubbishData" desc="请求进入玩家的乐园">
+		<member name="roadid" prefix="required" type="uint64" desc="路实例id"/>
+		<member name="rubbish" prefix="required" type="uint32" desc="垃圾的类型id"/>
+	</proto>
+	
+	<proto name="ReqPurchaseItem" desc="请求购买道具">
+		<member name="itemid" prefix="required" type="uint32" desc="道具id"/>
+		<member name="itemcount" prefix="required" type="uint32" desc="道具数量"/>
+	</proto>
+	
+</protocol>
+
